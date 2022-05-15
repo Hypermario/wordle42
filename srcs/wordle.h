@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wordle.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 14:59:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 15:57:00 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 16:17:18 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,17 @@
 # define MLX_ERROR		1
 
 # define PAD_ERASE_LEFT 140
-# define PAS_ERASE_TOP 140
-# define PAD_WORDS_LEFT (WIDTH / 8)
+# define PAD_ERASE_TOP 140
+# define PAD_WORDS_LEFT (WIDTH_WORDLE / 8)
 # define PAD_WORDS_TOP (HEIGHT / 5)
 # define PAD_BETWEEN_WORDS 20
 # define PAD_BETWEEN_LETTERS 10
+# define PAD_CONSOLE_LEFT (WIDTH_WORDLE + 20)
+# define PAD_CONSOLE_TOP 20
+
+# define CONSOLE_MAX_LINES 5
+# define CONSOLE_SIZE_FONT 30
+# define CONSOLE_LINE_CHARS_MAX 20
 
 // COLORS
 enum colors
@@ -61,13 +67,6 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_word
-{
-	char			c;
-	int				status;
-	struct s_word	*next;
-}	t_word;
-
 typedef struct s_data
 {
 	void*	mlx;
@@ -75,13 +74,13 @@ typedef struct s_data
 	char	*fullword;
 	int		iw;
 	int		il;
+	int		iconsole;
 	int		tries;
 	char	*file;
 	char	*in;
 	time_t	lasterror;
 	bool	correct;
 	bool	finished;
-	t_word	*word[6];
 	t_img	img;
 }	t_data;
 
@@ -108,10 +107,7 @@ int		handle_closing(t_data *data);
 /*
 **	WORD
 */
-void	word_check(t_data *data, char *input);
-t_word	*word_newletter(char c, int status);
-void	word_add_back(t_word **alst, t_word *new);
-void	word_print(t_word *word);
+bool	word_check(t_data *data);
 
 /*
 **  RENDER LETTER
@@ -122,10 +118,15 @@ int	write_letter(t_data *data, char c);
 int	validate_letters(t_data *data);
 
 /*
+**  CONSOLE
+*/
+int	printf_console(t_data *data, char *format, ...);
+
+/*
 **	UTILS
 */
 void	free_split(char	**split);
-void	free_data(t_data data);
+void	free_data(t_data *data);
 char	*line_wrapper(char *line);
 
 #endif

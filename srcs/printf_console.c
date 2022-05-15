@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:03:05 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 16:00:08 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 16:18:55 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include "wordle.h"
 
-void	get_until_format(char **format, char **str)
+static void	get_until_format(char **format, char **str)
 {
 	char	*new_str;
 	int		len_until_format;
@@ -40,14 +40,23 @@ void	get_until_format(char **format, char **str)
 		*format += 1;
 }
 
-void	get_format(va_list vars_printf, char **format, char **str)
+static void	get_format(va_list vars_printf, char **format, char **str)
 {
 	char	*new_str;
+	char	*nbr;
 
 	if (!*format || !**format)
 		return ;
+	new_str = 0;
 	if (**format == 'd' || **format == 'i')
-		new_str = ft_strjoin(*str, ft_atoi(va_arg(vars_printf, int)));
+	{
+		nbr = ft_itoa(va_arg(vars_printf, int));
+		if (nbr)
+		{
+			new_str = ft_strjoin(*str, nbr);
+			free(nbr);
+		}
+	}
 	if (**format == 'c')
 	{
 		new_str = malloc(ft_strlen(*str) + 1);
@@ -71,27 +80,28 @@ void	get_format(va_list vars_printf, char **format, char **str)
 	*format += 1;
 }
 
-int	putlines_mlx(t_data *data, char *str)
+static int	putlines_mlx(t_data *data, char *str)
 {
-	char	buff[LEN_BUFF_STRING_PUT];
+	char	buff[CONSOLE_LINE_CHARS_MAX + 1];
 	int		i;
 	int		x;
 	int		y;
 
-	ft_memset(buff, 0, LEN_BUFF_STRING_PUT);
+	ft_memset(buff, 0, CONSOLE_LINE_CHARS_MAX + 1);
 	x = PAD_CONSOLE_LEFT;
 	i = 0;
-	while (ft_strlen(str + i * (LEN_BUFF_STRING_PUT - 1)) > LEN_BUFF_STRING_PUT - 1)
+	while (data->iconsole < CONSOLE_MAX_LINES && ft_strlen(str + i * CONSOLE_LINE_CHARS_MAX) > CONSOLE_LINE_CHARS_MAX)
 	{
-		ft_memcpy(buff, str + i * (LEN_BUFF_STRING_PUT - 1), LEN_BUFF_STRING_PUT - 1);
-		y = PAD_CONSOLE_TOP + data->iconsole * SIZE_CONSOLE_FONT;
+		ft_memcpy(buff, str + i * CONSOLE_LINE_CHARS_MAX, CONSOLE_LINE_CHARS_MAX);
+		y = PAD_CONSOLE_TOP + data->iconsole * CONSOLE_SIZE_FONT;
 		if (mlx_string_put(data->mlx, data->win, x, y, 0xFFFFFF, buff) == -1)
 			return (-1);
 		data->iconsole++;
 		i++;
 	}
-	y = PAD_CONSOLE_TOP + data->iconsole * SIZE_CONSOLE_FONT;
-	if (mlx_string_put(data->mlx, data->win, x, y, 0xFFFFFF, str + i * (LEN_BUFF_STRING_PUT - 1)) == -1)
+	ft_memcpy(buff, str + i * CONSOLE_LINE_CHARS_MAX, ft_strlen(str + i * CONSOLE_LINE_CHARS_MAX));
+	y = PAD_CONSOLE_TOP + data->iconsole * CONSOLE_SIZE_FONT;
+	if (data->iconsole < CONSOLE_MAX_LINES && mlx_string_put(data->mlx, data->win, x, y, 0xFFFFFF, str + i * CONSOLE_LINE_CHARS_MAX) == -1)
 		return (-1);
 	data->iconsole++;
 	return (0);
@@ -111,7 +121,7 @@ int	printf_console(t_data *data, char *format, ...)
 	while (format && *format)
 	{
 		get_until_format(&format, &str);
-		get_format(&format, &str);
+		get_format(vars_printf, &format, &str);
 	}
 	va_end(vars_printf);
 	if (!format)
