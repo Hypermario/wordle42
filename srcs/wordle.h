@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:27:43 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:38:50 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@
 # include "libft.h"
 
 
-# define HEIGHT			720
+# define HEIGHT			1080
 # define WIDTH			1080
 # define MLX_ERROR		1
+
+# define PAD_WORDS_LEFT WIDTH / 4
+# define PAD_WORDS_TOP HEIGHT / 8
+# define PAD_BETWEEN_WORDS 20
+# define PAD_BETWEEN_LETTERS 10
 
 // COLORS
 enum colors
@@ -108,6 +113,7 @@ void	word_print(t_word *word);
 int	erase_letter(t_data *data);
 int	put_letter(t_data *data, char c, int state);
 int	write_letter(t_data *data, char c);
+int	validate_letters(t_data *data);
 
 /*
 **	UTILS

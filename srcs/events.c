@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:26:24 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:42:39 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	handle_keypress(int keysym, t_data *data)
 			}
 			data->tries--;
 			word_check(data, data->in);
-			word_print(data->word[data->iw]);
+			validate_letters(data);
+			// word_print(data->word[data->iw]);
 			if (data->correct)
 			{
 				printf("YOU WON IN %d TRIES!\n", -(data->tries - 6));
