@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:30:15 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 15:32:29 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 16:07:44 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*line_wrapper(char *line)
 	
 	ret = ft_substr(line, 0, ft_strlen(line) - 1);
 	free(line);
-	return (ret);
+	return (ft_strtolower(ret));
 }
 
 /*
