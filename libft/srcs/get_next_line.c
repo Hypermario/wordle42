@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 18:04:27 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/03/21 15:42:01 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 16:51:22 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*get_moved(char *buf)
 	if (!str)
 		return (0);
 	if (buf[i] && buf[i + 1])
-		buf = ft_memmove_gnl(buf, buf + len, ft_strlen(buf + len));
+		ft_memmove_gnl(buf, buf + len, ft_strlen(buf + len));
 	else
 		ft_bzero(buf, BUFFER_SIZE);
 	return (str);
@@ -53,7 +53,7 @@ static int	buf_to_str(char *buf, char **str)
 		*str = ft_strjoin_gnl(*str, buf, len);
 	if (buf[i] && buf[i] == '\n' && buf[i + 1])
 	{
-		buf = ft_memmove_gnl(buf, buf + len, ft_strlen(buf + len));
+		ft_memmove_gnl(buf, buf + len, ft_strlen(buf + len));
 		return (-1);
 	}
 	else

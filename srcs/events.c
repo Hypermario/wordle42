@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 15:33:08 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:07:13 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	handle_keypress(int keysym, t_data *data)
 		{
 			if (!dict_check(data, data->in))
 			{
-				data->lasterror = time(NULL);
-				printf("%lu\n", data->lasterror);
-				printf("Not in dictionary\n"); // put error image
+				printf_console(data, "Not in dictionary");
 				return (0);
 			}
 			data->tries--;
@@ -41,26 +39,23 @@ int	handle_keypress(int keysym, t_data *data)
 				return (1);
 			if (data->correct)
 			{
-				printf("YOU WON IN %d TRIES!\n", -(data->tries - 6)); // put error image
+				printf_console(data, "YOU WON IN %d TRIES!", -(data->tries - 6));
 				data->finished = true;
 				return (0);
 			}
 			else
-			{
-				printf("Incorrect word, %d tries remaining\n", data->tries); // put error image
-				data->lasterror = time(NULL);
-			}
+				printf_console(data, "Incorrect word, %d tries remaining", data->tries);
 			data->iw++;
 			free(data->in);
 			data->in = NULL;
 		}
 		else if (prevlen < 5)
 		{
-			printf("Word is too short\n"); // put error image
+			printf_console(data, "Word is too short");
 		}
 		if (data->tries <= 0)
 		{
-			printf("The word was %s\n", data->fullword); // put error image
+			printf_console(data, "The word was %s", data->fullword);
 			data->finished = true;
 		}
 	}
@@ -70,15 +65,9 @@ int	handle_keypress(int keysym, t_data *data)
 		tmp = data->in;
 		data->in = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
 		free(tmp);
-		// printf("key=bs in=%s\n", data->in);
 	}
 	else if (!data->finished)
 	{
-		if (data->lasterror + 2 <= time(NULL))
-		{
-			// delete error image
-			// printf("deleting error image %lu\n", time(NULL));
-		}
 		if (((keysym == 'A' && keysym <= 'Z') || (keysym >= 'a' && keysym <= 'z'))
 			&& prevlen < 5)
 		{
@@ -90,8 +79,9 @@ int	handle_keypress(int keysym, t_data *data)
 				data->in = ft_strjoin(tmp, (char *)&keysym);
 			free(tmp);
 		}
-		// printf("key=%c in=%s\n", keysym, data->in);
 	}
+	if (keysym == XK_space)
+		reset_game(data);
 	return (0);
 }
 

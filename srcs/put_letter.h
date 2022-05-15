@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:36:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 13:32:19 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:24:04 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define PATH_LETTER_I_STATE 24
 # define PATH_LETTER_EMPTY "ressources/letters_xpm/empty.xpm"
 
-enum states
+enum e_states
 {
 	STATE_WRITTEN,
 	STATE_VALID,

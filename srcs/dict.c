@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:30:15 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 16:07:44 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:24:48 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static long	count_lines(int fd)
 {
 	int		len;
 	char	buf[1];
-	
+
 	len = 1;
 	while (1)
 	{
@@ -50,7 +50,7 @@ static long	count_lines(int fd)
 char	*line_wrapper(char *line)
 {
 	char	*ret;
-	
+
 	ret = ft_substr(line, 0, ft_strlen(line) - 1);
 	free(line);
 	return (ft_strtolower(ret));
@@ -64,7 +64,7 @@ bool	dict_check(t_data *data, char *in)
 {
 	int		fd;
 	char	*line;
-	
+
 	fd = open(data->file, O_RDONLY);
 	if (fd < 0)
 		return (false);

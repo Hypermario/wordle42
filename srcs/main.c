@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:21:27 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 16:17:31 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:23:53 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static t_data	init_data(char *file)
 	data.il = 0;
 	data.iconsole = 0;
 	data.tries = 6;
-	data.lasterror = 0;
 	data.file = file;
 	data.in = NULL;
 	data.finished = false;
@@ -67,6 +66,5 @@ int	main(int ac, char **av)
 		return (perror("open"), -1);
 	else if (mp == 2)
 		return (ft_putstr_fd("wordle: dictionary error\n", 2), 2);
-	printf("Hint : the word is %s\n", data.fullword);
 	return (mlx(data));
 }

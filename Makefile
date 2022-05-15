@@ -6,7 +6,7 @@
 #    By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 12:55:14 by jmolvaut          #+#    #+#              #
-#    Updated: 2022/05/15 16:14:39 by rgarrigo         ###   ########.fr        #
+#    Updated: 2022/05/15 17:16:22 by jmolvaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SCRIPTS		= ./scripts
 # **************************************************************************** #
 #                                   FILES                                      #
 # **************************************************************************** #
-SRC 		= main.c image.c events.c render.c utils.c word.c				\
+SRC 		= main.c image.c events.c utils.c word.c						\
 			  dict.c put_letter.c init_display.c printf_console.c			\
 
 SRCS		= ${addprefix ${SRC_DIR}, ${SRC}}

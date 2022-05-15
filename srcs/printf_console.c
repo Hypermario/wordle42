@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_console.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:03:05 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 16:18:55 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:23:16 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static void	get_until_format(char **format, char **str)
 	int		len_until_format;
 
 	len_until_format = 0;
-	while (*format[len_until_format] && *format[len_until_format] != '%')
+	while ((*format)[len_until_format] && (*format)[len_until_format] != '%')
 		len_until_format++;
-	new_str = malloc(ft_strlen(*str) + len_until_format + 1);
+	new_str = calloc(ft_strlen(*str) + len_until_format + 1, sizeof(char));
 	if (!new_str)
 	{
-		free(*format);
+		*format = NULL;
 		return ;
 	}
 	ft_memcpy(new_str, *str, ft_strlen(*str));
@@ -59,7 +59,7 @@ static void	get_format(va_list vars_printf, char **format, char **str)
 	}
 	if (**format == 'c')
 	{
-		new_str = malloc(ft_strlen(*str) + 1);
+		new_str = calloc(ft_strlen(*str) + 1, sizeof(char));
 		if (new_str)
 		{
 			ft_memcpy(new_str, *str, ft_strlen(*str));
@@ -110,7 +110,7 @@ static int	putlines_mlx(t_data *data, char *str)
 int	printf_console(t_data *data, char *format, ...)
 {
 	char	*str;
-	va_list vars_printf;
+	va_list	vars_printf;
 
 	if (!data || !format)
 		return (-1);

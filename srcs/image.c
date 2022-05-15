@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:16:18 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/14 12:28:50 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:13:14 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ int	create_image(t_data *data)
 			&data->img.bpp, &data->img.line_len, &data->img.endian);
 	if (data->img.addr == NULL)
 		return (1);
-	render_next_frame(data);
 	return (0);
 }
