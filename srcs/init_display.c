@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 13:02:43 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 14:17:44 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 15:57:15 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,21 @@ int	init_letters(t_data *data)
 
 int	init_background(t_data *data)
 {
-	void		*img;
+	void	*img;
 	char	path_background[] = "ressources/background.xpm";
-	int			x;
-	int			y;
+	char	path_background_black[] = "ressources/black.xpm";
+	int		x;
+	int		y;
 
 	img = mlx_xpm_file_to_image(data->mlx, path_background, &x, &y);
 	if (!img)
 		return (-1);
 	mlx_put_image_to_window(data->mlx, data->win, img, 0, 0);
+	mlx_destroy_image(data->mlx, img);
+	img = mlx_xpm_file_to_image(data->mlx, path_background_black, &x, &y);
+	if (!img)
+		return (-1);
+	mlx_put_image_to_window(data->mlx, data->win, img, WIDTH_WORDLE, 0);
 	mlx_destroy_image(data->mlx, img);
 	return (0);
 }

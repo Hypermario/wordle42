@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 14:59:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 14:59:49 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 15:57:00 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@
 # include "libft.h"
 
 
-# define WIDTH			720
+# define WIDTH_WORDLE	720
+# define WIDTH_CONSOLE	320
+# define WIDTH			(WIDTH_WORDLE + WIDTH_CONSOLE)
 # define HEIGHT			960
 # define MLX_ERROR		1
 
