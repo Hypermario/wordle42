@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:36:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 11:46:33 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 12:53:46 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # define PAD_BETWEEN_WORDS 20
 # define PAD_BETWEEN_LETTERS 10
 
-# define PATH_LETTER_TEMPLATE
-# define PATH_LETTER_I_LETTER
-# define PATH_LETTER_I_STATE
+# define PATH_LETTER_TEMPLATE "ressources/letters_xpm/XX.xpm"
+# define PATH_LETTER_I_LETTER 23
+# define PATH_LETTER_I_STATE 24
+# define PATH_LETTER_EMPTY "ressources/letters_xpm/empty.xpm"
 
 enum states
 {

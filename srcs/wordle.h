@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/14 17:10:05 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 12:44:59 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_data
 	void	*win;
 	char	*fullword;
 	int		iw;
+	int		il;
 	int		tries;
 	char	*file;
 	int		keytyped;
