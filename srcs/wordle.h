@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:01:25 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:05:41 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ typedef struct s_data
 	int		il;
 	int		tries;
 	char	*file;
-	int		keytyped;
+	char	*in;
+	int		key_typed;
 	bool	correct;
+	bool	finished;
 	t_word	*word[6];
 	t_img	img;
 }	t_data;
