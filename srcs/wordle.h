@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:38:50 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:51:33 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_word
 
 typedef struct s_data
 {
-	void	*mlx;
+	void*	mlx;
 	void	*win;
 	char	*fullword;
 	int		iw;
@@ -74,6 +74,7 @@ typedef struct s_data
 	int		tries;
 	char	*file;
 	char	*in;
+	time_t	lasterror;
 	bool	correct;
 	bool	finished;
 	t_word	*word[6];

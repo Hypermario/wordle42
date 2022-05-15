@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:57:15 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:57:55 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,36 @@ int	handle_keypress(int keysym, t_data *data)
 		{
 			if (!dict_check(data, data->in))
 			{
-				printf("Not in dictionary\n");
+				data->lasterror = time(NULL);
+				printf("%lu\n", data->lasterror);
+				printf("Not in dictionary\n"); // put error image
 				return (0);
 			}
 			data->tries--;
 			word_check(data, data->in);
 			validate_letters(data);
-			// word_print(data->word[data->iw]);
 			if (data->correct)
 			{
-				printf("YOU WON IN %d TRIES!\n", -(data->tries - 6));
+				printf("YOU WON IN %d TRIES!\n", -(data->tries - 6)); // put error image
 				data->finished = true;
 				return (0);
 			}
 			else
-				printf("Incorrect word, %d tries remaining\n", data->tries);
+			{
+				printf("Incorrect word, %d tries remaining\n", data->tries); // put error image
+				data->lasterror = time(NULL);
+			}
 			data->iw++;
 			free(data->in);
 			data->in = NULL;
 		}
 		else if (prevlen < 5)
-			printf("Word is too short\n");
+		{
+			printf("Word is too short\n"); // put error image
+		}
 		if (data->tries <= 0)
 		{
-			printf("The word was %s\n", data->fullword);
+			printf("The word was %s\n", data->fullword); // put error image
 			data->finished = true;
 		}
 	}
@@ -67,6 +73,11 @@ int	handle_keypress(int keysym, t_data *data)
 	}
 	else if (!data->finished)
 	{
+		if (data->lasterror + 2000 <= time(NULL))
+		{
+			// delete error image
+			printf("deleting error image\n");
+		}
 		if (((keysym == 'A' && keysym <= 'Z') || (keysym >= 'a' && keysym <= 'z'))
 			&& prevlen < 5)
 		{
