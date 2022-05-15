@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:13:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 17:20:16 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:04:52 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,16 @@ int	erase_letter(t_data *data)
 
 int	validate_letters(t_data *data)
 {
+	int	count_char[256] = {0};
 	int	i;
 
+	i = 0;
+	while (data->fullword[i])
+	{
+		if (data->in[i] != data->fullword[i])
+			count_char[(int) data->fullword[i]]++;
+		i++;
+	}
 	data->il = 0;
 	i = 0;
 	while (data->in[i])
@@ -86,10 +94,11 @@ int	validate_letters(t_data *data)
 			if (put_letter(data, data->in[i], STATE_VALID) == -1)
 				return (-1);
 		}
-		else if (ft_strchr(data->fullword, data->in[i]) != NULL)
+		else if (count_char[(int) data->in[i]])
 		{
 			if (put_letter(data, data->in[i], STATE_IN_WRONG_PLACE) == -1)
 				return (-1);
+			count_char[(int) data->in[i]]--;
 		}
 		else
 		{

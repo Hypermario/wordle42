@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 17:07:13 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:12:20 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	handle_keypress(int keysym, t_data *data)
 		free_data(data);
 		exit(0);
 	}
+	else if (keysym == XK_F1)
+		printf_console(data, data->fullword);
 	else if (keysym == XK_Return && !data->finished)
 	{
 		if (prevlen == 5)
