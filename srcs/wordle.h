@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 12:44:59 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:01:25 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,13 @@ void	word_check(char *input, t_data *data);
 t_word	*word_newletter(char c, int status);
 void	word_add_back(t_word **alst, t_word *new);
 void	word_print(t_word *word);
+
+/*
+**  RENDER LETTER
+*/
+int	erase_letter(t_data *data, char c);
+int	put_letter(t_data *data, char c, int state);
+int	write_letter(t_data *data, char c);
 
 /*
 **	UTILS
