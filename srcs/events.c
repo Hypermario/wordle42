@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:42:39 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:57:15 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	handle_keypress(int keysym, t_data *data)
 		if (((keysym == 'A' && keysym <= 'Z') || (keysym >= 'a' && keysym <= 'z'))
 			&& prevlen < 5)
 		{
-			write_letter(data, ft_tolower(keysym));
+			write_letter(data, ft_tolower((char)keysym));
 			tmp = data->in;
 			if (!data->in)
 				data->in = ft_strdup((char *)&keysym);

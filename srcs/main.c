@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:21:27 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:03:29 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:57:59 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ static t_data	init_data(char *file)
 	data.img.mlx_img = NULL;
 	data.img.addr = NULL;
 	data.iw = 0;
+	data.il = 0;
 	data.tries = 6;
 	data.file = file;
+	data.in = NULL;
+	data.finished = false;
 	return (data);
 }
 
