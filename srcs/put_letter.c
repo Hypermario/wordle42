@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_letter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:13:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 12:48:04 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:16:17 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	put_letter(t_data *data, char c, int state)
 	int		y;
 
 	set_path_letter(path, c);
-	set_path_state(path, data->state);
+	set_path_state(path, state);
 	img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
 	if (!img)
 		return (-1);
@@ -44,7 +44,7 @@ int	put_letter(t_data *data, char c, int state)
 
 int	write_letter(t_data *data, char c)
 {
-	if (data->il > 5)
+	if (data->il >= 5)
 		return (0);
 	if (put_letter(data, c, STATE_WRITTEN) == -1)
 		return (-1);
@@ -52,10 +52,12 @@ int	write_letter(t_data *data, char c)
 	return (1);
 }
 
-int	erase_letter(t_data *data, char c)
+int	erase_letter(t_data *data)
 {
 	void	*img;
 	char	path[] = PATH_LETTER_EMPTY;
+	int		x;
+	int		y;
 
 	if (data->il <= 0)
 		return (0);

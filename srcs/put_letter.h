@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_letter.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:36:34 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 12:53:46 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:11:44 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 
 enum states
 {
-	STATE_WRITTEN;
-	STATE_VALID;
-	STATE_IN_WRONG_PLACE;
-	STATE_NOT_IN_WORD;
+	STATE_WRITTEN,
+	STATE_VALID,
+	STATE_IN_WRONG_PLACE,
+	STATE_NOT_IN_WORD
 };
 
 #endif

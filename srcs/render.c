@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:15:35 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/14 13:58:40 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:18:12 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	render_next_frame(t_data *data)
 {
 	if (data->win == NULL)
 		return (0);
-	render_background(&data->img, 0x032A34);
+	render_background(&data->img, 0x000000);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.mlx_img, 0, 0);
 	return (0);
 }

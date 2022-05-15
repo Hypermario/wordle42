@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 13:05:41 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:27:43 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_data
 	int		tries;
 	char	*file;
 	char	*in;
-	int		key_typed;
 	bool	correct;
 	bool	finished;
 	t_word	*word[6];
@@ -98,7 +97,7 @@ int		handle_closing(t_data *data);
 /*
 **	WORD
 */
-void	word_check(char *input, t_data *data);
+void	word_check(t_data *data, char *input);
 t_word	*word_newletter(char c, int status);
 void	word_add_back(t_word **alst, t_word *new);
 void	word_print(t_word *word);
@@ -106,7 +105,7 @@ void	word_print(t_word *word);
 /*
 **  RENDER LETTER
 */
-int	erase_letter(t_data *data, char c);
+int	erase_letter(t_data *data);
 int	put_letter(t_data *data, char c, int state);
 int	write_letter(t_data *data, char c);
 

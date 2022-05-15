@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:21:35 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/14 17:14:11 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:26:57 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ char	*line_wrapper(char *line)
 
 /*
 **	check le status de chaque lettres
-**	et le renvois dans une structure t_word
+**	et modifie dans data une structure t_word
 */
-void	word_check(char *input, t_data *data)
+void	word_check(t_data *data, char *input)
 {
 	const char	*word = data->fullword;
 	int			i;
