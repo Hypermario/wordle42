@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:13:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 13:41:52 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:45:00 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int	validate_letters(t_data *data)
 				return (-1);
 		}
 		i++;
+		data->il++;
 	}
 	data->il = 0;
-	data->iw++;
 	return (0);
 }
