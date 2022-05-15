@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 14:51:33 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:58:45 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 # include "libft.h"
 
 
-# define HEIGHT			1080
-# define WIDTH			1080
+# define WIDTH			720
+# define HEIGHT			960
 # define MLX_ERROR		1
 
-# define PAD_WORDS_LEFT WIDTH / 4
-# define PAD_WORDS_TOP HEIGHT / 8
+# define PAD_WORDS_LEFT (WIDTH / 8)
+# define PAD_WORDS_TOP (HEIGHT / 5)
 # define PAD_BETWEEN_WORDS 20
 # define PAD_BETWEEN_LETTERS 10
 
@@ -84,6 +84,7 @@ typedef struct s_data
 /*
 **	RENDER
 */
+int		init_display(t_data *data);
 void	img_pixel_put(t_img *img, int x, int y, int color);
 int		create_image(t_data *data);
 int		render_next_frame(t_data *data);

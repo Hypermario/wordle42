@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:21:27 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 14:50:49 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:58:36 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	mlx(t_data data)
 	}
 	if (create_image(&data))
 		return (free_data(data), MLX_ERROR);
+	init_display(&data);
 	mlx_hook(data.win, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_hook(data.win, ClientMessage, 0, &handle_closing, &data);
 	mlx_loop(data.mlx);
