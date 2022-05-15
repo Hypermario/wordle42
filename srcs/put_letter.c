@@ -6,7 +6,7 @@
 /*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:13:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 12:48:04 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:26:56 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,34 @@ int	erase_letter(t_data *data, char c)
 	mlx_put_image_to_window(data->mlx, data->win, img, x, y);
 	mlx_destroy_image(data->mlx, img);
 	return (1);
+}
+
+int	validate_letters(t_data *data)
+{
+	int	i;
+
+	data->il = 0;
+	i = 0;
+	while (data->file[i])
+	{
+		if (data->file[i] == data->fullword[i])
+		{
+			if (put_letter(data, data->file[i], STATE_VALID) == -1)
+				return (-1);
+		}
+		else if (ft_strchr(data->fullword, data->file[i]) != 0)
+		{
+			if (put_letter(data, data->file[i], STATE_IN_WRONG_PLACE) == -1)
+				return (-1);
+		}
+		else
+		{
+			if (put_letter(data, data->file[i], STATE_NOT_IN_WORD) == -1)
+				return (-1);
+		}
+		i++;
+	}
+	data->il = 0;
+	data->iw++;
+	return (0);
 }
