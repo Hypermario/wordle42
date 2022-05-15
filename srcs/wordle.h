@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:25:25 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 14:12:35 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:54:52 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define HEIGHT			960
 # define MLX_ERROR		1
 
+# define PAD_ERASE_LEFT 140
+# define PAS_ERASE_TOP 140
 # define PAD_WORDS_LEFT (WIDTH / 8)
 # define PAD_WORDS_TOP (HEIGHT / 5)
 # define PAD_BETWEEN_WORDS 20

@@ -1,0 +1,12 @@
+Welcome to Wordle!
+
+You have 6 tries to find the secret word
+For each try, enter a word and press ENTER
+
+Green means the letter is correct
+Yellow means the letter is not in the right place
+Grey means the letter is not in the word
+
+Press SPACE to relaunch
+
+Good luck!
