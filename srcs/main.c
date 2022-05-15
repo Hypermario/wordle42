@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:21:27 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 17:23:53 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:47:14 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int ac, char **av)
 	if (ac >= 2)
 		file = av[1];
 	else
-		file = "words.txt";
+		file = "ressources/words.txt";
 	data = init_data(file);
 	mp = dict_random_word(file, &data);
 	if (mp == -1)

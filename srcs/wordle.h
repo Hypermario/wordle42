@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 14:59:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 17:26:11 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:34:43 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 # define PAD_WORDS_TOP (HEIGHT / 5)
 # define PAD_BETWEEN_WORDS 20
 # define PAD_BETWEEN_LETTERS 10
-# define PAD_CONSOLE_LEFT (WIDTH_WORDLE + 20)
-# define PAD_CONSOLE_TOP 20
+# define PAD_CONSOLE_LEFT (WIDTH_WORDLE + 15)
+# define PAD_CONSOLE_TOP 30
 
 # define CONSOLE_MAX_LINES 47
 # define CONSOLE_SIZE_FONT 20
