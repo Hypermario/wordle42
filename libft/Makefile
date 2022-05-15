@@ -71,6 +71,7 @@ SRC 		= ft_argp_printf.c \
 			  ft_strnstr.c \
 			  ft_strrchr.c \
 			  ft_strtoi.c \
+			  ft_strtolower.c \
 			  ft_strtrim.c \
 			  ft_substr.c \
 			  ft_tolower.c \
