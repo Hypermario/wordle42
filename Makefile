@@ -6,7 +6,7 @@
 #    By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 12:55:14 by jmolvaut          #+#    #+#              #
-#    Updated: 2022/05/15 13:11:19 by jmolvaut         ###   ########.fr        #
+#    Updated: 2022/05/15 14:07:46 by rgarrigo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SCRIPTS		= ./scripts
 #                                   FILES                                      #
 # **************************************************************************** #
 SRC 		= main.c parsing.c image.c events.c render.c utils.c word.c		\
-			  dict.c put_letter.c											\
+			  dict.c put_letter.c init_display.c							\
 
 SRCS		= ${addprefix ${SRC_DIR}, ${SRC}}
 OBJS		= ${addprefix ${OBJ_DIR}, ${SRC:.c=.o}}

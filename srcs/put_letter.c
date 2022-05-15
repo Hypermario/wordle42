@@ -6,10 +6,11 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:13:56 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 13:45:00 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:06:47 by rgarrigo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "put_letter.h"
 #include "wordle.h"
 
