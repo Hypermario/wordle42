@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wordle.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgarrigo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 14:59:47 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 14:59:49 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/15 15:26:49 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define MLX_ERROR		1
 
 # define PAD_ERASE_LEFT 140
-# define PAS_ERASE_TOP 140
+# define PAD_ERASE_TOP 140
 # define PAD_WORDS_LEFT (WIDTH / 8)
 # define PAD_WORDS_TOP (HEIGHT / 5)
 # define PAD_BETWEEN_WORDS 20
@@ -59,13 +59,6 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_word
-{
-	char			c;
-	int				status;
-	struct s_word	*next;
-}	t_word;
-
 typedef struct s_data
 {
 	void*	mlx;
@@ -79,7 +72,6 @@ typedef struct s_data
 	time_t	lasterror;
 	bool	correct;
 	bool	finished;
-	t_word	*word[6];
 	t_img	img;
 }	t_data;
 
@@ -106,10 +98,7 @@ int		handle_closing(t_data *data);
 /*
 **	WORD
 */
-void	word_check(t_data *data, char *input);
-t_word	*word_newletter(char c, int status);
-void	word_add_back(t_word **alst, t_word *new);
-void	word_print(t_word *word);
+bool	word_check(t_data *data);
 
 /*
 **  RENDER LETTER
@@ -123,7 +112,7 @@ int	validate_letters(t_data *data);
 **	UTILS
 */
 void	free_split(char	**split);
-void	free_data(t_data data);
+void	free_data(t_data *data);
 char	*line_wrapper(char *line);
 
 #endif

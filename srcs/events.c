@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 14:57:55 by jmolvaut         ###   ########.fr       */
+/*   Updated: 2022/05/15 15:33:08 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	handle_keypress(int keysym, t_data *data)
 	{
 		mlx_destroy_window(data->mlx, data->win);
 		data->win = NULL;
-		free_data(*data);
+		free_data(data);
 		exit(0);
 	}
 	else if (keysym == XK_Return && !data->finished)
@@ -36,8 +36,9 @@ int	handle_keypress(int keysym, t_data *data)
 				return (0);
 			}
 			data->tries--;
-			word_check(data, data->in);
-			validate_letters(data);
+			data->correct = word_check(data);
+			if (validate_letters(data))
+				return (1);
 			if (data->correct)
 			{
 				printf("YOU WON IN %d TRIES!\n", -(data->tries - 6)); // put error image
@@ -69,14 +70,14 @@ int	handle_keypress(int keysym, t_data *data)
 		tmp = data->in;
 		data->in = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
 		free(tmp);
-		printf("key=bs in=%s\n", data->in);
+		// printf("key=bs in=%s\n", data->in);
 	}
 	else if (!data->finished)
 	{
-		if (data->lasterror + 2000 <= time(NULL))
+		if (data->lasterror + 2 <= time(NULL))
 		{
 			// delete error image
-			printf("deleting error image\n");
+			// printf("deleting error image %lu\n", time(NULL));
 		}
 		if (((keysym == 'A' && keysym <= 'Z') || (keysym >= 'a' && keysym <= 'z'))
 			&& prevlen < 5)
@@ -89,7 +90,7 @@ int	handle_keypress(int keysym, t_data *data)
 				data->in = ft_strjoin(tmp, (char *)&keysym);
 			free(tmp);
 		}
-		printf("key=%c in=%s\n", keysym, data->in);
+		// printf("key=%c in=%s\n", keysym, data->in);
 	}
 	return (0);
 }
@@ -98,7 +99,7 @@ int	handle_closing(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	data->win = NULL;
-	free_data(*data);
+	free_data(data);
 	exit(0);
 	return (0);
 }
