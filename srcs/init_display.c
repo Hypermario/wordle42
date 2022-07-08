@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 13:02:43 by rgarrigo          #+#    #+#             */
-/*   Updated: 2022/05/15 17:45:55 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/16 11:33:26 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	init_console(t_data *data)
 	printf_console(data, "Yellow means the letter is not in the right place");
 	printf_console(data, "Grey means the letter is not in the word");
 	printf_console(data, "");
-	printf_console(data, "Press SPACE to relaunch");
+	printf_console(data, "Press F12 to relaunch");
 	printf_console(data, "");
 	printf_console(data, "Good luck!");
 	printf_console(data, "");

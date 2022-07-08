@@ -6,7 +6,7 @@
 /*   By: jmolvaut <jmolvaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:19:22 by jmolvaut          #+#    #+#             */
-/*   Updated: 2022/05/15 19:12:20 by rgarrigo         ###   ########.fr       */
+/*   Updated: 2022/05/16 11:32:13 by jmolvaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	handle_keypress(int keysym, t_data *data)
 			free(tmp);
 		}
 	}
-	if (keysym == XK_space)
+	if (keysym == XK_F12)
 		reset_game(data);
 	return (0);
 }
